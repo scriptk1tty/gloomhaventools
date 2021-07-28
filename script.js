@@ -1,5 +1,6 @@
 //TODO
-//+ or - damage
+//change max HP value
+//fix dmg math
 
 // global variables
 let unitObjArr = [];
@@ -18,8 +19,8 @@ const deleteDiv = (id) =>{
 
 }
 
-// damage calculation
-const damageCalc = (id) =>{
+//----------SUBTRACT DAMAGE calculation----------
+const damageSubtraction = (id) =>{
     const value = document.getElementById("dmgInput" + id.toString()).value
 
     for(let i = 0; i < unitObjArr.length; i++){
@@ -46,6 +47,38 @@ const damageCalc = (id) =>{
         }
     }
 }
+
+// damage calculation
+const damageAddition = (id) =>{
+    const value = document.getElementById("dmgInput" + id.toString()).value;
+    
+    if(value.trim() === "")
+        return;
+
+    for(let i = 0; i < unitObjArr.length; i++){
+        if(unitObjArr[i].id == id){
+            if(parseInt(unitObjArr[i].HP) + parseInt(value) > unitObjArr[i].maxHP) {
+                unitObjArr[i].HP = unitObjArr[i].maxHP;
+            }
+            else{
+                unitObjArr[i].HP = parseInt(unitObjArr[i].HP) + parseInt(value);
+            }
+        
+            // update values in dom
+            const hpDiv = document.getElementById("hp"+id);
+            const dmgInput = document.getElementById("dmgInput" + id)
+            const healthBar = document.getElementById("health" + id)
+            const healthBarImage = document.getElementById("healthImage" + id)
+        
+            const progressBar = document.querySelector("progress");
+        
+            hpDiv.innerHTML = "HP: " + unitObjArr[i].HP;
+            dmgInput.value = null;
+            healthBar.value = unitObjArr[i].HP
+        }
+    }
+}
+
 // status function
 const updateStatus = (status,id) =>{
     //element.classList.contains(class);
@@ -99,12 +132,20 @@ const renderNew = (id,unitNum,name,HP) =>{
     damageInput.className = 'cardDamageInput';
     damageInput.type = 'number';
     damageInput.id = "dmgInput" + id;
+    damageInput.min = '0';
+
+    const subtractButton = document.createElement('button');
+    subtractButton.className = 'subtractDamageButton';
+    subtractButton.innerHTML = "-";
+    subtractButton.onclick = function(){
+        damageSubtraction(id)
+    }
 
     const damageButton = document.createElement('button');
     damageButton.className = 'addDamageButton';
-    damageButton.innerHTML = "Add Damage";
+    damageButton.innerHTML = "+";
     damageButton.onclick = function(){
-        damageCalc(id)
+        damageAddition(id)
     }
 
     //----------HEALTH BAR----------
@@ -121,6 +162,7 @@ const renderNew = (id,unitNum,name,HP) =>{
     //-----------DAMAGE SECTION----------
     damageDiv.appendChild(healthBarImage);
     damageDiv.appendChild(healthBar);
+    damageDiv.appendChild(subtractButton);
     damageDiv.appendChild(damageInput);
     damageDiv.appendChild(damageButton);
     mainDiv.appendChild(damageDiv);
@@ -154,11 +196,7 @@ const renderNew = (id,unitNum,name,HP) =>{
 var checkbox = document.getElementById('eliteCheckbox');
 
 checkbox.addEventListener('change', function() {
-    if (this.checked) {
-        isElite = true;
-    } else {
-        isElite = false;
-    }
+    isElite = this.checked;
 });
 
 
@@ -205,6 +243,7 @@ const manualAdd= ()=>{
         unitNum: unitNum,
         name: unit,
         HP: hp,
+        maxHP: hp,
         Status:[]
     }
 

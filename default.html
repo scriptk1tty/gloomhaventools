@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8">
+    <title>Gloomhaven Tools</title>
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="styles.css" rel="stylesheet" />
+</head>
+<body>
+<div class="flex-continer" id="title-container">
+    <h1>Gloomhaven Damage Tracker</h1>
+</div>
+
+<div class="flex-container" id="top-container">
+    <form><label class="inputLbl">Unit Name:</label><br />
+        <input id="unitInput" type="text" /><br />
+        <label class="inputLbl">Unit Number:</label><br />
+        <input id="unitNumInput" min="0" type="number" value="0" /><br />
+        <label class="inputLbl">Unit Hit Points:</label><br />
+        <input id="hpInput" min="0" type="number" value="0" /><br />
+        <br />
+        <input id="eliteCheckbox" type="checkbox" /> <label class="eliteLbl" for="eliteCheckbox">Elite</label><br />
+        <input id="addUnitBtn" type="button" value="Add Unit" /></form>
+</div>
+
+<div class="flex-container" id="middle-container"></div>
+
+<div class="flex-container" id="bottom-container"></div>
+<script src="script.js"></script></body>
+</html>
