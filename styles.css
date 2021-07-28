@@ -1,0 +1,364 @@
+/*---------Font Imports---------*/
+/*Download Nyala: https://fontzone.net/font-details/nyala*/
+/*Download High Tower Text: https://fontzone.net/download/high-tower-text*/
+@import url(https://fonts.googleapis.com/css?family=Pirata+One);
+
+@font-face {
+    font-family: Nyala;
+    src: url(nyala.ttf);
+}
+
+@font-face{
+    font-family: High Tower Text;
+    src: url(HTOWERT.ttf);
+}
+
+/*---------Background & Body---------*/
+body {
+    color: black;
+    background-image: url('https://i.imgur.com/EBmV0A4.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#title-container{
+    font: pirata-one;
+    text-align: center;
+    font-size: 30px;
+}
+
+/*----------Unit Form Input Styling----------*/
+#top-container{
+    justify-content: center;
+    padding: 20px;
+}
+
+#bottom-container {
+}
+
+input[type="text"], input[type="number"] {
+    font-family: 'High Tower Text';
+}
+
+form > label{
+    font-size: 2rem;
+    font-family: 'Nyala';
+    font-weight: bold;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+form > input{
+    height: 2.2rem;
+    font-size: 2rem;
+    border-radius: 8px;
+}
+
+#hpInput{
+    width: 60px;
+}
+
+#unitNumInput{
+    width: 60px;
+}
+
+.eliteLbl {
+    font-size: 1.5rem;
+}
+
+#eliteCheckbox {
+    width: 15px;
+    vertical-align: middle;
+    position: relative;
+    bottom: 3px;
+    margin: 0;
+}
+
+#addUnitBtn {
+    border: solid #000000;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    background-color: #581314; /**Maroon**/
+    font-family: 'Pirata One';
+    color: white;
+    cursor: pointer;
+}
+
+#addUnitBtn:hover {
+    background-color: white;
+    color: #581314;
+}
+
+/*---------Unit Card Styling---------*/
+.unitCard {
+    background-image: url('https://i.imgur.com/V3oS4le.png');
+    background-size: 100% 100%;
+    border-radius: 4px;
+    box-shadow: 5px 5px 5px 5px black;
+    width: 377.5px;
+    height: 376.25px;
+    color: black;
+    line-height: 1rem;
+    font-size: 30px;
+    margin: 0px 20px 20px 20px;
+}
+
+.unitCard.elite {
+    background-image: url('https://i.imgur.com/2OllHnDh.jpg')
+}
+
+#middle-container {
+    justify-content: center;
+    text-align: center;
+}
+
+/* JS Element */
+.buttonsDiv {
+    margin: 0px 30px 20px 30px;
+}
+
+.subtractDamageButton {
+    border: solid #000000;
+    border-radius: 8px;
+    font-size: 20px;
+    background-color: #581314; /*Maroon*/
+    font-family: 'Pirata One';
+    color: white;
+    cursor: pointer;
+}
+
+.subtractDamageButton:hover {
+    background-color: white;
+    color: #581314;
+}
+
+.addDamageButton {
+    border: solid #000000;
+    border-radius: 8px;
+    font-size: 20px;
+    background-color: #581314; /*Maroon*/
+    font-family: 'Pirata One';
+    color: white;
+    cursor: pointer;
+}
+
+.addDamageButton:hover {
+    background-color: white;
+    color: #581314;
+}
+
+.deleteButton {
+    border: solid #000000;
+    border-radius: 8px;
+    background-color: #581314; /*Maroon*/
+    font-size: 14px;
+    font-family: 'Nyala';
+    font-weight: bold;
+    color: white;
+    float: right;
+    margin: 2px 2px;
+    cursor: pointer;
+}
+
+.deleteButton:hover {
+    background-color: #cdcdcf; /*Grey*/
+    color: #581314; /*Maroon*/
+}
+
+/*----------Progress Bar Styling----------*/
+.health {
+    width: 225px;
+    margin: 0px 0px 20px -10px;
+    -webkit-appearance: none;
+    background-color: black;
+}
+
+/*PROGRESS BAR COLOR CHANGE*/
+
+progress::-webkit-progress-value {
+    background-color: darkRed;
+    border-radius: 10px;
+}
+
+progress::webkit-progress-inner-element {
+    border-radius: 20px;
+    width: 210px;
+}
+
+
+
+
+.healthImage {
+    display: inline;
+    position: relative;
+    width: 247px;
+    height: 45px;
+    margin-bottom: -37px;
+    margin-left: -26px;
+    z-index: 2;
+}
+
+h1 {
+    margin: 0;
+    font-family: 'Pirata One';
+}
+
+h5 {
+    margin:0;
+}
+
+h4 {
+    margin: 8px 0px 20px 25px;
+}
+
+.unitCardName {
+    font-family: 'Pirata One';
+    color: white;
+    font-size: 24px;
+    letter-spacing: 0.01em;
+    text-transform: capitalize;
+}
+
+.cardDamageDiv {
+    width: 12rem;
+    margin: 15px 0px 15px 0px;
+    display: block;
+    display: inline-block;
+}
+
+.cardDamageInput{
+    border-radius: 8px;
+    width: 50px;
+    margin: 0px 10px 0px 10px;
+    font-size: 20px;
+}
+
+.hp {
+    margin: 10px 0px -10px 0px;
+    color: #581314; /*Maroon*/
+    font-size: 40px;
+    font-family: 'Nyala';
+    font-weight: bold;
+}
+
+/*---------- Status Effect Button Styling ----------*/
+.button {
+    border-radius: 8px;
+    height: 55px;
+    width: 55px;
+    border: none;
+    margin: 10px 5px 0px 5px;
+    display: inline-block;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    box-shadow: 2px 2px 2px 2px #333333;
+}
+
+.button:hover, :focus {
+    outline: 0;
+}
+
+.stunBtn {
+    background-image: url('https://i.imgur.com/BSt3k9j.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 2px solid DarkBlue
+}
+
+.stunBtn:hover, .stunActive {
+    background-image: url('https://i.imgur.com/w8XYhVc.png');
+}
+
+.woundBtn {
+    background-image: url('https://i.imgur.com/r3alV7a.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 2px solid DarkOrange;
+}
+
+.woundBtn:hover, .woundActive {
+    background-image: url('https://i.imgur.com/gCZ6bBz.png');
+}
+
+.poisonBtn {
+    background-image: url('https://i.imgur.com/dRKUHOm.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 2px solid ForestGreen;
+}
+
+.poisonBtn:hover, .poisonActive {
+    background-image: url('https://i.imgur.com/ESHRjbv.png');
+}
+
+.immobolizeBtn {
+    background-image: url('https://i.imgur.com/pEfI3ww.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 2px solid FireBrick;
+}
+
+.immobolizeBtn:hover, .immobolizeActive {
+    background-image: url('https://i.imgur.com/3L6QQJ2.png');
+}
+
+.invisibleBtn {
+    background-image: url('https://i.imgur.com/qSqK9ww.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 2px solid #333333;
+}
+
+.invisibleBtn:hover, .invisibleActive {
+    background-image: url('https://i.imgur.com/3R3eprK.png');
+}
+
+.disarmBtn {
+    background-image: url('https://i.imgur.com/1lVwp9y.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 2px solid Grey;
+}
+
+.disarmBtn:hover, .disarmActive {
+    background-image: url('https://i.imgur.com/KZehZDd.png');
+}
+
+.muddleBtn {
+    background-image: url('https://i.imgur.com/Jj9wjXO.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 2px solid SaddleBrown;
+}
+
+.muddleBtn:hover, .muddleActive {
+    background-image: url('https://i.imgur.com/2CawvBu.png');
+}
+
+.strengthenBtn {
+    background-image: url('https://i.imgur.com/FdA6kOI.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 2px solid cornflowerBlue;
+}
+
+.strengthenBtn:hover, .strengthenActive {
+    background-image: url('https://i.imgur.com/okNNhnk.png');
+}
+
+
+
+
+

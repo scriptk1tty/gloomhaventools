@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link href="styles.css" rel="stylesheet">
+        <meta charset="UTF-8">
+    </head>
+
+    <body>
+        <div class="flex-continer" id="title-container">
+            <h1>Gloomhaven Damage Tracker</h1>
+        </div>
+
+        <div class="flex-container" id="top-container">
+            <form>
+                <label class="inputLbl">Unit Name:</label><br>
+                <input type="text" id="unitInput"><br>
+
+                <label class="inputLbl">Unit Number:</label><br>
+                <input type="number" value="0" min="0" id="unitNumInput"><br>
+
+                <label class="inputLbl">Unit Hit Points:</label><br>
+                <input type="number" value="0" min="0" id="hpInput"><br><br>
+
+
+                <input type="checkbox" id="eliteCheckbox">
+                <label for="eliteCheckbox" class="eliteLbl">Elite</label><br>
+
+                <input type="button" id="addUnitBtn" value="Add Unit">
+            </form>
+        </div>
+
+        <div class="flex-container" id="middle-container">
+        </div>
+
+        <div class="flex-container" id="bottom-container">
+
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+
+
+</html>
